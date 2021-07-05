@@ -14,7 +14,7 @@ export default {
   },
   //加密
   encrypt(word, keyStr) {
-    keyStr = keyStr ? keyStr : "123456{saltZX}.."; //判断是否存在key，不存在就用定义好的key
+    keyStr = keyStr ? keyStr : "123456{saltZX}.."; //key和后台统一 判断是否存在key，不存在就用定义好的key
     var key = CryptoJS.enc.Utf8.parse(keyStr);
     var srcs = CryptoJS.enc.Utf8.parse(word);
     var encrypted = CryptoJS.AES.encrypt(srcs, key, {
