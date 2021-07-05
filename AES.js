@@ -1,6 +1,17 @@
 import CryptoJS from "crypto-js";
  
 export default {
+ //随机生成指定数量的16进制key
+  generatekey(num) {
+    let library =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let key = "";
+    for (var i = 0; i < num; i++) {
+      let randomPoz = Math.floor(Math.random() * library.length);
+      key += library.substring(randomPoz, randomPoz + 1);
+    }
+    return key;
+  },
   //加密
   encrypt(word, keyStr) {
     keyStr = keyStr ? keyStr : "123456{saltZX}.."; //判断是否存在key，不存在就用定义好的key
